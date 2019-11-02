@@ -3,7 +3,7 @@ NAME = triple_x
 
 # COMPILER
 CC = g++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 # DIRECTORIES
 SRCDIR = ./srcs/
@@ -11,31 +11,30 @@ OBJDIR = ./objs/
 INCDIR = ./includes/
 
 # SRCS & OBJS
-SRCS = ./srcs/triple_x.cpp
-OBJS = ./objs/triple_x.o
+SRCS = triple_x.cpp \
+		hehe.cpp \
+		haha.cpp
+OBJS = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
 
-# # LIBRARY
-# FT = ./libft/
-# FT_LIB = $(addprefix $(SRCDIR),libft.a)
-# FT_INC = -I $(LIBFT)
-# FT_LNK = -L $(LIBFT) -l ft
+all: objs $(NAME)
 
-all: objdir $(NAME)
-
-objdir:
+objs:
 	mkdir -p $(OBJDIR)
 
-# $(OBJDIR)%.o:$(SRCDIR)%.c
-# 	$(CC) $(CFLAGS) -I $(SRCS) -I $(INCDIR) -o $@ -c $<
+$(OBJDIR)%.o:$(SRCDIR)%.cpp
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
 
-$(NAME): $(OBJDIR)
-	$(CC) $(CFLAGS) -I $(INCDIR) -o $(OBJS) -c $(SRCS)
+$(NAME):$(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
-re: fclean all
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
+
+.PHONY: all clean fclean re
