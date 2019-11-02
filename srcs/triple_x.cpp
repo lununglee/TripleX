@@ -9,7 +9,7 @@ int	main()
 	const int	sum = a + b + c;
 	const int	product = a * b * c;
 
-	// // VALUES
+	// // ASSIGNING VALUES
 	// a = 4;
 	// b = 3;
 	// c = 2;
@@ -21,7 +21,7 @@ int	main()
 	std::cout << "There is only one door at the end of this hallway and on that door you see a numpad..." << std::endl;
 	std::cout << "You need to enter the correct codes to continue..." << std::endl;
 
-	// OUTPUT VALUE
+	// OUTPUT PROCESSED VALUE
 	std::cout << sum << std::endl;
 	std::cout << product << std::endl;
 
