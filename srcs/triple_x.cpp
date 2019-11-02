@@ -3,12 +3,14 @@
 int	main()
 {
 	// DECLARATION OF VARIABLES
+	int			GuessA, GuessB, GuessC;
+	int			GuessSum, GuessProduct;
+
 	const int	CodeA = 4;
 	const int	CodeB = 3;
 	const int	CodeC = 2;
 	const int	CodeSum = CodeA + CodeB + CodeC;
 	const int	CodeProduct = CodeA * CodeB * CodeC;
-	int			PlayerGuess;
 
 	// // ASSIGNING VALUES
 	// a = 4;
@@ -27,5 +29,12 @@ int	main()
 	std::cout << "The code adds up to: " << CodeSum << std::endl;
 	std::cout << "The code multiplies up to: " << CodeProduct << std::endl;
 
+	// READING USER INPUT
+	std::cin >> GuessA >> GuessB >> GuessC;
+	std::cout << "Your guess was: " << GuessA << " | " << GuessB << " | " << GuessC << std::endl;
+
+	// PROCESSING USER INPUT
+	GuessSum = GuessA + GuessB + GuessC;
+	GuessProduct = GuessA * GuessB * GuessC;
 	return (0);
 }
