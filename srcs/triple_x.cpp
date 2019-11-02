@@ -4,11 +4,11 @@ int	main()
 {
 
 	// DECLARATION OF VARIABLES
-	int	a;
-	int	b;
-	int	c;
-	int	sum;
-	int	product;
+	const int	a;
+	const int	b;
+	const int	c;
+	const int	sum;
+	const int	product;
 
 	// VALUES
 	a = 4;
