@@ -6,6 +6,7 @@ int	main()
 	int			GuessA, GuessB, GuessC;
 	int			GuessSum, GuessProduct;
 
+	// INITIALIZATION OF CONST VARIABLES
 	const int	CodeA = 4;
 	const int	CodeB = 3;
 	const int	CodeC = 2;
@@ -30,11 +31,23 @@ int	main()
 	std::cout << "The code multiplies up to: " << CodeProduct << std::endl;
 
 	// READING USER INPUT
+	std::cout << "Please enter 3 numbers delimited (separated) by spaces" << std::endl;
 	std::cin >> GuessA >> GuessB >> GuessC;
 	std::cout << "Your guess was: " << GuessA << " | " << GuessB << " | " << GuessC << std::endl;
 
 	// PROCESSING USER INPUT
 	GuessSum = GuessA + GuessB + GuessC;
 	GuessProduct = GuessA * GuessB * GuessC;
+
+	if (GuessSum == CodeSum && GuessProduct == CodeProduct)
+	{
+		std::cout << "You're in!" << std::endl;
+	}
+	else
+	{
+		std::cout << "You lost..." << std::endl;
+	}
+	
+
 	return (0);
 }

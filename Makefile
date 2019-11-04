@@ -11,9 +11,7 @@ OBJDIR = ./objs/
 INCDIR = ./includes/
 
 # SRCS & OBJS
-SRCS = triple_x.cpp \
-		hehe.cpp \
-		haha.cpp
+SRCS = triple_x.cpp
 OBJS = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
 
 all: objs $(NAME)
