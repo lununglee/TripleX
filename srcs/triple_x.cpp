@@ -2,10 +2,14 @@
 
 int	main()
 {
-	int	levelDifficulty;
+	// DECLARATION OF VARIABLES
+	const int	MaxDifficulty = 5;
+
+	// INITIALIZATION OF VARIABLES
+	int			levelDifficulty;
 
 	levelDifficulty = 1;
-	while (true)
+	while (levelDifficulty <= MaxDifficulty)
 	{
 		bool	bLevelComplete;
 
@@ -15,6 +19,8 @@ int	main()
 
 		if (bLevelComplete)
 			++levelDifficulty;
+
+		std::cout << "You LIVED!" << std::endl;
 	}
 	return 0;
 }
@@ -30,16 +36,16 @@ void PrintIntroduction(int levelDifficulty) {
 
 bool PlayGame(int levelDifficulty)
 {
+	// INITIALIZATION OF CONST VARIABLES
+	const int	CodeA = rand();
+	const int	CodeB = rand();
+	const int	CodeC = rand();
+	const int	CodeSum = CodeA + CodeB + CodeC;
+	const int	CodeProduct = CodeA * CodeB * CodeC;
+
 	// DECLARATION OF VARIABLES
 	int			GuessA, GuessB, GuessC;
 	int			GuessSum, GuessProduct;
-
-	// INITIALIZATION OF CONST VARIABLES
-	const int	CodeA = 4;
-	const int	CodeB = 3;
-	const int	CodeC = 2;
-	const int	CodeSum = CodeA + CodeB + CodeC;
-	const int	CodeProduct = CodeA * CodeB * CodeC;
 
 	// // ASSIGNING VALUES
 	// a = 4;
@@ -72,7 +78,7 @@ bool PlayGame(int levelDifficulty)
 	}
 	else
 	{
-		std::cout << "Oof... Your brains got eaten\n\n";
+		std::cout << "Hurry up! Try again!\n\n";
 		return false;
 	}
 }
