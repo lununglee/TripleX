@@ -2,31 +2,37 @@
 
 int	main()
 {
-	// DECLARATION OF VARIABLES
+	// INITIALIZATION OF VARIABLES
 	const int	MaxDifficulty = 5;
 
-	// INITIALIZATION OF VARIABLES
+	// DECLARATION OF VARIABLES
 	int			levelDifficulty;
 
 	levelDifficulty = 1;
 	while (levelDifficulty <= MaxDifficulty)
 	{
+		// DECLARATION OF VARIABLES
 		bool	bLevelComplete;
 
+		// GAME ITERATION
 		bLevelComplete = PlayGame(levelDifficulty);
-		std::cin.clear();	// clears any errors
-		std::cin.ignore();	// discards the buffer
+		ClearInput();
 
 		if (bLevelComplete)
 			++levelDifficulty;
-
-		std::cout << "You LIVED!" << std::endl;
 	}
+	std::cout << "You LIVED!" << std::endl;
 	return 0;
 }
 
+void ClearInput()
+{
+	std::cin.clear();	// clears any errors
+	std::cin.ignore();	// discards the buffer
+	return ;
+}
+
 void PrintIntroduction(int levelDifficulty) {
-	// MESSAGE
 	std::cout << "\nYou're running away from Zombies and you've reached the end of a long hallway...\n";
 	std::cout << "There is only one door at the end of this hallway and on that door you see a numpad...\n";
 	std::cout << "You need to enter the correct codes to continue...\n";
@@ -36,10 +42,12 @@ void PrintIntroduction(int levelDifficulty) {
 
 bool PlayGame(int levelDifficulty)
 {
+	srand(time(NULL));	// creating random seed based on time
+
 	// INITIALIZATION OF CONST VARIABLES
-	const int	CodeA = rand();
-	const int	CodeB = rand();
-	const int	CodeC = rand();
+	const int	CodeA = rand() % levelDifficulty + levelDifficulty;
+	const int	CodeB = rand() % levelDifficulty + levelDifficulty;
+	const int	CodeC = rand() % levelDifficulty + levelDifficulty;
 	const int	CodeSum = CodeA + CodeB + CodeC;
 	const int	CodeProduct = CodeA * CodeB * CodeC;
 
@@ -47,13 +55,7 @@ bool PlayGame(int levelDifficulty)
 	int			GuessA, GuessB, GuessC;
 	int			GuessSum, GuessProduct;
 
-	// // ASSIGNING VALUES
-	// a = 4;
-	// b = 3;
-	// c = 2;
-	// sum = a + b + c;
-	// product = a * b * c;
-
+	// PRINT INTRO MESSAGE
 	PrintIntroduction(levelDifficulty);
 
 	// OUTPUT PROCESSED VALUE
