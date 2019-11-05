@@ -4,6 +4,6 @@
 # include <iostream>
 
 void	PrintIntroduction();
-void	PlayGame();
+bool	PlayGame();
 
 #endif

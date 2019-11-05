@@ -2,7 +2,14 @@
 
 int	main()
 {
-	PlayGame();
+	while (true)
+	{
+		bool	bLevelComplete;
+
+		bLevelComplete = PlayGame();
+		std::cin.clear();	// clears any errors
+		std::cin.ignore();	// discards the buffer
+	}
 	return 0;
 }
 
@@ -14,7 +21,7 @@ void PrintIntroduction() {
 	return ;
 }
 
-void PlayGame()
+bool PlayGame()
 {
 	// DECLARATION OF VARIABLES
 	int			GuessA, GuessB, GuessC;
@@ -52,9 +59,13 @@ void PlayGame()
 
 	// WIN CONDITION VERIFICATION
 	if (GuessSum == CodeSum && GuessProduct == CodeProduct)
+	{
 		std::cout << "You're in!\n";
+		return true;
+	}
 	else
-		std::cout << "Oof... Your brains got eaten\n";
-
-	return ;
+	{
+		std::cout << "Oof... Your brains got eaten\n\n";
+		return false;
+	}
 }
