@@ -2,26 +2,33 @@
 
 int	main()
 {
+	int	levelDifficulty;
+
+	levelDifficulty = 1;
 	while (true)
 	{
 		bool	bLevelComplete;
 
-		bLevelComplete = PlayGame();
+		bLevelComplete = PlayGame(levelDifficulty);
 		std::cin.clear();	// clears any errors
 		std::cin.ignore();	// discards the buffer
+
+		if (bLevelComplete)
+			++levelDifficulty;
 	}
 	return 0;
 }
 
-void PrintIntroduction() {
+void PrintIntroduction(int levelDifficulty) {
 	// MESSAGE
-	std::cout << "You're running away from Zombies and you've reached the end of a long hallway...\n";
+	std::cout << "\nYou're running away from Zombies and you've reached the end of a long hallway...\n";
 	std::cout << "There is only one door at the end of this hallway and on that door you see a numpad...\n";
-	std::cout << "You need to enter the correct codes to continue...\n\n";
+	std::cout << "You need to enter the correct codes to continue...\n";
+	std::cout << "Your current level difficulty is: " << levelDifficulty << std::endl << std::endl;
 	return ;
 }
 
-bool PlayGame()
+bool PlayGame(int levelDifficulty)
 {
 	// DECLARATION OF VARIABLES
 	int			GuessA, GuessB, GuessC;
@@ -41,7 +48,7 @@ bool PlayGame()
 	// sum = a + b + c;
 	// product = a * b * c;
 
-	PrintIntroduction();
+	PrintIntroduction(levelDifficulty);
 
 	// OUTPUT PROCESSED VALUE
 	std::cout << "There are a total of 3 numbers in the code\n";

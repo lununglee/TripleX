@@ -4,6 +4,6 @@
 # include <iostream>
 
 void	PrintIntroduction();
-bool	PlayGame();
+bool	PlayGame(int levelDifficulty);
 
 #endif
