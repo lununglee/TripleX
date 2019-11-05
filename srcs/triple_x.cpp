@@ -2,6 +2,20 @@
 
 int	main()
 {
+	PlayGame();
+	return 0;
+}
+
+void PrintIntroduction() {
+	// MESSAGE
+	std::cout << "You're running away from Zombies and you've reached the end of a long hallway...\n";
+	std::cout << "There is only one door at the end of this hallway and on that door you see a numpad...\n";
+	std::cout << "You need to enter the correct codes to continue...\n\n";
+	return ;
+}
+
+void PlayGame()
+{
 	// DECLARATION OF VARIABLES
 	int			GuessA, GuessB, GuessC;
 	int			GuessSum, GuessProduct;
@@ -20,20 +34,17 @@ int	main()
 	// sum = a + b + c;
 	// product = a * b * c;
 
-	// MESSAGE
-	std::cout << "You're running away from Zombies and you've reached the end of a long hallway...\n";
-	std::cout << "There is only one door at the end of this hallway and on that door you see a numpad...\n";
-	std::cout << "You need to enter the correct codes to continue...\n\n";
+	PrintIntroduction();
 
 	// OUTPUT PROCESSED VALUE
 	std::cout << "There are a total of 3 numbers in the code\n";
-	std::cout << "The code adds up to: \n" << CodeSum;
-	std::cout << "The code multiplies up to: \n" << CodeProduct;
+	std::cout << "The code adds up to: " << CodeSum << std::endl;
+	std::cout << "The code multiplies up to: " << CodeProduct << std::endl << std::endl;
 
 	// READING USER INPUT
 	std::cout << "Please enter 3 numbers delimited (separated) by spaces\n";
 	std::cin >> GuessA >> GuessB >> GuessC;
-	std::cout << "Your guess was: " << GuessA << " | " << GuessB << " | " << GuessC;
+	std::cout << "Your guess was: " << GuessA << " | " << GuessB << " | " << GuessC << std::endl;
 
 	// PROCESSING USER INPUT
 	GuessSum = GuessA + GuessB + GuessC;
@@ -43,7 +54,7 @@ int	main()
 	if (GuessSum == CodeSum && GuessProduct == CodeProduct)
 		std::cout << "You're in!\n";
 	else
-		std::cout << "Your brains got eaten\n";
+		std::cout << "Oof... Your brains got eaten\n";
 
-	return (0);
+	return ;
 }

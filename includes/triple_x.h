@@ -3,4 +3,7 @@
 
 # include <iostream>
 
+void	PrintIntroduction();
+void	PlayGame();
+
 #endif
