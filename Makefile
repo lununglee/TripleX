@@ -1,5 +1,5 @@
 # NAME OF EXECUTABLE
-NAME = triple_x
+NAME = TripleX
 
 # COMPILER
 CC = g++
@@ -11,7 +11,7 @@ OBJDIR = ./objs/
 INCDIR = ./includes/
 
 # SRCS & OBJS
-SRCS = triple_x.cpp
+SRCS = TripleX.cpp
 OBJS = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
 
 all: objs $(NAME)
